@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<header>
+    <link href='https://fonts.googleapis.com/css?family=Amita' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Alex Brush' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Almendra Display' rel='stylesheet'>
+    <title>Home</title>
+    <link href="/statics/style.css" rel="stylesheet" type="text/css" />
+</header>
+<body>
+    <div id="sidenav">
+        <h2>side bar</h2>
+        <p>Choisi un nombre entre 0 et 1000</p>
+        <form method="POST" action="/traitement">
+            nombre: <input name="nombre">
+            <br/>
+            <button type="submit" name="action" value="valider">
+                valider
+            </button>
+        </form>
+    </div>
+    <div id="main">
+        <h1><em>Peux-tu trouver le bon nombre ?</em></h1>
+        {% if resultat %}
+            {{resultat}}
+        {% endif %}
+    </div>
+</body>
+</html>

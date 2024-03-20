@@ -1,0 +1,46 @@
+body {
+    font-family: "Arial", sans-serif;
+    color: #898989;
+    background-color: #26c4ec;
+    font-size: 20px;
+    text-align: center;
+}
+
+#sidenav {
+    position: relative;
+    width: 19%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #898989;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    color: #ffffff;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+}
+
+#main {
+    position: relative;
+    width: 80%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 20%;
+    background-color: #ffffff;
+}
+
+h1 {
+    font-family: "Almendra Display";
+    color: #26c4ec;
+    font-size: 60px;
+}
+
+h2 {
+    font-family: "Amita";
+    color: #26c4ec;
+    font-size: 25px;
+}
