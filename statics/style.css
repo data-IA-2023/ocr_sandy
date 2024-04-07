@@ -33,6 +33,14 @@ body {
     background-color: #ffffff;
 }
 
+#liennav {
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+}
+
 h1 {
     font-family: "Almendra Display";
     color: #26c4ec;
@@ -43,4 +51,58 @@ h2 {
     font-family: "Amita";
     color: #26c4ec;
     font-size: 25px;
+}
+
+h3 {
+  font-family: "Amita";
+  color: #26c4ec;
+  font-size: 25px;
+}
+
+.button-24 {
+  
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  vertical-align: middle; 
+}
+
+.button-32 {
+  background-color: #26c4ec;
+  border-radius: 12px;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 10px 15px;
+  text-align: center;
+  transition: 200ms;
+  box-sizing: border-box;
+  display: inline-block;
+  border: 0 solid #ffffff;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-32:not(:disabled):hover,
+.button-32:not(:disabled):focus {
+  outline: 0;
+  background: #26c4ec;
+  box-shadow: 0 0 0 2px #ffffff, 0 3px 8px 0 #ffffff;
+}
+
+.button-32:disabled {
+  filter: saturate(0.2) opacity(0.5);
+  -webkit-filter: saturate(0.2) opacity(0.5);
+  cursor: not-allowed;
 }

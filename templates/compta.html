@@ -4,25 +4,34 @@
     <link href='https://fonts.googleapis.com/css?family=Amita' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Alex Brush' rel='stylesheet'>
     <link href='https://fonts.googleapis.com/css?family=Almendra Display' rel='stylesheet'>
-    <title>Home</title>
+    <title>biilllling</title>
     <link href="/statics/style.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/png" href="/statics/logo.PNG" />
 </header>
 <body>
     <div id="sidenav">
-        <h2>side bar</h2>
-        <p>Choisi un nombre entre 0 et 1000</p>
-        <form method="POST" action="/traitement">
-            nombre: <input name="nombre">
-            <br/>
-            <button type="submit" name="action" value="valider">
-                valider
-            </button>
-        </form>
+        <img src="/statics/logo.PNG" id="Logo">
+        <p>pages :</p>
+        <a href="/home" id="liennav">Home</a><br/>
+        <a href="/ocr" id="liennav">facture</a><br/>
+        <a href="/compta" id="liennav">comptabilité</a><br/>
+        <a href="/monit" id="liennav">monitoring</a><br/>
     </div>
     <div id="main">
-        <h1><em>Peux-tu trouver le bon nombre ?</em></h1>
-        {% if resultat %}
-            {{resultat}}
+        <h1><em>biilllling</em></h1><h3>company</h3>
+        <br/>
+        <h2><em>Voici les statistique de la base de données :</em></h2>
+        {% if df_facture %}
+            {{df_facture}}
+        {% endif %}
+        {% if df_client %}
+            {{df_client}}
+        {% endif %}
+        {% if df_produit %}
+            {{df_produit}}
+        {% endif %}
+        {% if df_achat %}
+            {{df_achat}}
         {% endif %}
     </div>
 </body>
