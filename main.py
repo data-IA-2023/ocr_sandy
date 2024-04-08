@@ -81,7 +81,7 @@ def get_ocr(request: Request, nombre: str = Form(), times: str = Form(), action:
     d1, m1, y1 = times.split('/')
     date = datetime.datetime( day=int(d1), month=int(m1), year=int(y1) )
     print(date)
-    list_url = get_nb_facture_url (date, nombre)
+    list_url = get_nb_facture_url (date, int(nombre))
     try :
         OCR_main (list_url)
         resultat = True
