@@ -42,12 +42,15 @@ from text_extract import OCR_main
 # =========================================
 from req_bd import connect_bd, get_df_stat, get_df_monitoring
 
-
+# =========================================
+# importation :
+# =========================================
 from fastapi import FastAPI, Request, Form
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import datetime
+import pandas as pd
 # import dotenv, os
 
 # =========================================
@@ -108,6 +111,21 @@ def get_compta(request: Request):
         df_client = resultat['df_client']
         df_produit = resultat['df_produit']
         df_achat = resultat['df_achat']
+
+        size_df_facture = len(df_facture)
+        size_df_client = len(df_client)
+        size_df_produit = len(df_produit)
+        size_df_achat = len(df_achat)
+
+        size_df = f'Dans la base de donnée, il y a {size_df_facture} factures, {size_df_client} clients, {size_df_produit} produits et {size_df_achat} achats'
+
+        df_5 = pd.merge(df_facture, df_client, on="idClient")
+        # print(df_5.info())
+        df_5_r = df_5.drop(["idFacture", "imagePath", "dateFacture"], axis=1)
+        # print(df_5_r.info())
+        df_5_r_g = df_5_r.groupby(["nomClient", "idClient", "adresse"]).sum().sort_values(by=['total'])
+        # print(df_5_r_g.head(5))
+
         resultat_error = None
     except Exception as e :
         resultat_error = e
@@ -115,8 +133,9 @@ def get_compta(request: Request):
     if resultat_error != None :
         return templates.TemplateResponse( request=request, name="compta.html", context={"resultat_error":resultat_error} )
     else :
-        return templates.TemplateResponse( request=request, name="compta.html", context={'df_facture':df_facture.head(5).to_html(), 
-                                                                                         'df_client':df_client.head(5).to_html(), 
+        return templates.TemplateResponse( request=request, name="compta.html", context={'size_df':size_df, 
+                                                                                         'df_facture':df_facture.head(5).to_html(), 
+                                                                                         'df_client':df_5_r_g.head(5).to_html(), 
                                                                                          'df_produit':df_produit.head(5).to_html(), 
                                                                                          'df_achat':df_achat.head(5).to_html()} )
 
@@ -138,6 +157,7 @@ def get_monit(request: Request):
     return templates.TemplateResponse( request=request, name="monit.html", context={"resultat":resultat} )
 
 # ==================== pour remplire la base de données ====================
+
 # list_url_all = get_all_facture_url ()
 # print(len(list_url_all))
 # print(list_url_all, type(list_url_all))

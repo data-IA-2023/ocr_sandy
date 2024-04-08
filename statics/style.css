@@ -1,7 +1,7 @@
 body {
     font-family: "Arial", sans-serif;
     color: #898989;
-    background-color: #26c4ec;
+    background-color: #26ece2;
     font-size: 20px;
     text-align: center;
 }
@@ -28,10 +28,19 @@ body {
     width: 80%;
     height: 100%;
     position: fixed;
+    overflow: scroll;
     top: 0;
     left: 20%;
     background-color: #ffffff;
+    
 }
+
+/* #overflowTest {
+  padding: 15px;
+  width: 50%;
+  height: 100px;
+  border: 1px solid #ccc;
+} */
 
 #liennav {
     font-size: 20px;
@@ -42,8 +51,8 @@ body {
 }
 
 h1 {
-    font-family: "Almendra Display";
-    color: #26c4ec;
+    font-family: "Alex Brush";
+    color: #26ece2;
     font-size: 60px;
 }
 
@@ -55,7 +64,7 @@ h2 {
 
 h3 {
   font-family: "Amita";
-  color: #26c4ec;
+  color: #26ece2;
   font-size: 20px;
 }
 
@@ -73,7 +82,7 @@ h3 {
 }
 
 .button-32 {
-  background-color: #26c4ec;
+  background-color: #26ece2;
   border-radius: 12px;
   color: #ffffff;
   cursor: pointer;
@@ -97,7 +106,7 @@ h3 {
 .button-32:not(:disabled):hover,
 .button-32:not(:disabled):focus {
   outline: 0;
-  background: #26c4ec;
+  background: #26ece2;
   box-shadow: 0 0 0 2px #ffffff, 0 3px 8px 0 #ffffff;
 }
 

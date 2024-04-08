@@ -17,21 +17,29 @@
         <a href="/compta" id="liennav">comptabilité</a><br/>
         <a href="/monit" id="liennav">monitoring</a><br/>
     </div>
-    <div id="main">
+    <!-- id="overflowTest" -->
+    <div id="main" >
         <h1><em>biilllling</em></h1>
         <h3>company</h3>
         <br/>
         <h2><em>Voici les statistique de la base de données :</em></h2>
-        {% if df_facture %}
-            {{df_facture|safe}}
+        {% if size_df %}
+            {{size_df}}
         {% endif %}
         {% if df_client %}
+            <p>Liste des 5 plus gros clients :</p>
             {{df_client|safe}}
         {% endif %}
+        {% if df_facture %}
+            <p>Liste des 5 première factures :</p>
+            {{df_facture|safe}}
+        {% endif %}
         {% if df_produit %}
+            <p>Liste des 5 premier produits :</p>
             {{df_produit|safe}}
         {% endif %}
         {% if df_achat %}
+            <p>Liste des 5 premier achats :</p>
             {{df_achat|safe}}
         {% endif %}
     </div>

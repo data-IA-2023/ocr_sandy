@@ -310,3 +310,25 @@ def get_df_monitoring (session, engine) :
 # engine = dict_con['engine']
 # df_monit = get_df_monitoring(session, engine)
 # print('df_monit :', df_monit)
+
+# conn = connect_bd()
+# session = conn["session"]
+# engine = conn["engine"]
+
+# resultat = get_df_stat(session, engine)
+# df_facture = resultat['df_facture']
+# df_client = resultat['df_client']
+# df_produit = resultat['df_produit']
+# df_achat = resultat['df_achat']
+
+# size_df_facture = len(df_facture)
+# size_df_client = len(df_client)
+# size_df_produit = len(df_produit)
+# size_df_achat = len(df_achat)
+
+# df_5 = pd.merge(df_facture, df_client, on="idClient")
+# print(df_5.info())
+# df_5_r = df_5.drop(["idFacture", "imagePath", "dateFacture"], axis=1)
+# print(df_5_r.info())
+# df_5_r_g = df_5_r.groupby(["nomClient", "idClient", "adresse"]).sum().sort_values(by=['total'])
+# print(df_5_r_g.head(5))
