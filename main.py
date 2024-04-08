@@ -108,10 +108,17 @@ def get_compta(request: Request):
         df_client = resultat['df_client']
         df_produit = resultat['df_produit']
         df_achat = resultat['df_achat']
+        resultat_error = None
     except Exception as e :
         resultat_error = e
-
-    return templates.TemplateResponse( request=request, name="compta.html", context={'df_facture':df_facture, 'df_client':df_client, 'df_produit':df_produit, 'df_achat':df_achat, "resultat_error":resultat_error} )
+    
+    if resultat_error != None :
+        return templates.TemplateResponse( request=request, name="compta.html", context={"resultat_error":resultat_error} )
+    else :
+        return templates.TemplateResponse( request=request, name="compta.html", context={'df_facture':df_facture.head(5).to_html(), 
+                                                                                         'df_client':df_client.head(5).to_html(), 
+                                                                                         'df_produit':df_produit.head(5).to_html(), 
+                                                                                         'df_achat':df_achat.head(5).to_html()} )
 
 @app.get("/monit")
 def get_monit(request: Request):
@@ -120,7 +127,10 @@ def get_monit(request: Request):
         session = conn["session"]
         engine = conn["engine"]
 
-        resultat = get_df_monitoring(session, engine)
+        df_resultat = get_df_monitoring(session, engine)
+
+        resultat = df_resultat.head(5).to_html()
+
     except Exception as e :
         resultat = e
 
@@ -128,14 +138,14 @@ def get_monit(request: Request):
     return templates.TemplateResponse( request=request, name="monit.html", context={"resultat":resultat} )
 
 # ==================== pour remplire la base de données ====================
-list_url_all = get_all_facture_url ()
-print(len(list_url_all))
+# list_url_all = get_all_facture_url ()
+# print(len(list_url_all))
 # print(list_url_all, type(list_url_all))
 # OCR_main (list_url_all)
 
-d1, m1, y1 = f'19/10/2021'.split('/')
-print(d1, m1, y1)
-date = datetime.datetime( day=int(d1), month=int(m1), year=int(y1) )
-list_url = get_nb_facture_url (date, 1000)
-print(list_url, type(list_url))
-OCR_main (list_url)
+# d1, m1, y1 = f'26/12/2020'.split('/')
+# print(d1, m1, y1)
+# date = datetime.datetime( day=int(d1), month=int(m1), year=int(y1) )
+# list_url = get_nb_facture_url (date, 1000)
+# print(list_url, type(list_url))
+# OCR_main (list_url)

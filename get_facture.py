@@ -91,18 +91,18 @@ def get_nb_facture_url (date, nb) :
         get_url = False
         count = 0
         for element in list_facture :
-            print("element :", element)
-            print(element['dt'])
-            print(date)
+            # print("element :", element)
+            # print(element['dt'])
+            # print(date)
             date_element = datetime.datetime.strptime(element['dt'], '%Y-%m-%d %H:%M:%S')
             if date_element >= date and count < nb:
                 get_url = True
                 list_url.append(f"https://invoiceocrp3.azurewebsites.net/invoices/{element['no']}")
                 count += 1
-                print(get_url)
+                # print(get_url)
             if count == nb :
                 break
-            print(count)
+            # print(count)
 
         return list_url
 

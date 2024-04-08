@@ -18,20 +18,21 @@
         <a href="/monit" id="liennav">monitoring</a><br/>
     </div>
     <div id="main">
-        <h1><em>biilllling</em></h1><h3>company</h3>
+        <h1><em>biilllling</em></h1>
+        <h3>company</h3>
         <br/>
         <h2><em>Voici les statistique de la base de données :</em></h2>
         {% if df_facture %}
-            {{df_facture}}
+            {{df_facture|safe}}
         {% endif %}
         {% if df_client %}
-            {{df_client}}
+            {{df_client|safe}}
         {% endif %}
         {% if df_produit %}
-            {{df_produit}}
+            {{df_produit|safe}}
         {% endif %}
         {% if df_achat %}
-            {{df_achat}}
+            {{df_achat|safe}}
         {% endif %}
     </div>
 </body>

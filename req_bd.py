@@ -308,6 +308,5 @@ def get_df_monitoring (session, engine) :
 # dict_con = connect_bd()
 # session = dict_con['session']
 # engine = dict_con['engine']
-
 # df_monit = get_df_monitoring(session, engine)
 # print('df_monit :', df_monit)

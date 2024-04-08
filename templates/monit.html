@@ -23,7 +23,7 @@
         <br/>
         <h2><em>Voici le monitoring de la base de donnée :</em></h2>
         {% if resultat %}
-            {{resultat}}
+            {{resultat|safe}}
         {% endif %}
     </div>
 </body>
