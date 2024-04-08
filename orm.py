@@ -173,10 +173,10 @@ class Monitoring ( Base ):
 
 # =======================    méthode de la base de données    =======================
 
-con = connectBd()
+# con = connectBd()
 
-print(con)
+# print(con)
 
-sess = createsession(con)
+# sess = createsession(con)
 
-print(sess)
+# print(sess)
