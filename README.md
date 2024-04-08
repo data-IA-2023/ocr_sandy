@@ -1,5 +1,7 @@
 # ocr_sandy
 
+rapport : https://docs.google.com/document/d/1ZsSLOATIAMSP623pILUW5v_uoc8nwcxSX-5TUv5QB9s/edit?usp=sharing
+
 ## Contexte du projet
 
 En tant que développeur⸱se en IA pour le compte d’une ESN, vous devez :
